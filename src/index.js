@@ -3,43 +3,9 @@ const games = new Set();
 const Discord = require("discord.js");
 const Collect = require("./collect")
 
-/** 
-    * @param {Discord.Message || Discord.CommandInteraction} message The Message Object or the Interaction Object sent by the user
-    * @param {object} options The options object (optional)
-    * @returns Promise<Object>
-    * @async
-    * @example
-    * const blackjack = require("discord-blackjack")
-    * // other code here
-    *
-    * // if you are using prefix commands
-    * client.on("messageCreate", async message => {
-    *     if (message.content === "!blackjack") {
-    *         blackjack(message)        
-    *     }
-    * })
-
-    * // if you are using slash commands
-    * client.on("interactionCreate", async interaction => {
-    *     if (!interaction.isCommand) return;
-    *     
-    *     if (interaction.commandName === "blackjack") {
-    *         blackjack(interaction)
-    *     }
-    * })
-    * 
-    * // other code here
-*/
-
-
 module.exports = async (message, options) => {
 
-    // check if all the variables given are valid
-    if (!message) throw new Error("[MISSING_PARAMETER] The message or interaction parameter was not provided, was null or undefined.")
-    
-    // check if message and commandInteraction aren't something made up
-    if (!(message instanceof Discord.Message) && !(message instanceof Discord.CommandInteraction)) throw new Error("[INVALID_PARAMATER] The message or interaction parameter provided is not valid.")
-
+   
     // set all the options
     if (!options) options = {} // if options were not provided, make an empty object
     options.transition === "edit" ? options.transition = "edit" : options.transition = "delete" // how they want the embeds to be transitioned
